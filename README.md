@@ -6,9 +6,9 @@ Hangrui Cao (hangruic@andrew.cmu.edu)
 # Project Proposal
 
 
-## SUMMARY
+## Summary
 
-We plan to implement and optimize an Adaptive Mesh Refinement (AMR) framework specifically designed for stencil computations on parallel computing systems, including both multi-core CPUs and NVIDIA GPUs available in our lab. Our focus will be on creating a scalable and efficient solution that dynamically adjusts the computational grid for high-resolution simulations in regions of interest, significantly improving computation time and resource utilization.
+We aim to parallelize and optimize an Adaptive Mesh Refinement (AMR) code using OpenMP. The project involves parallelizing an existing serial base code to leverage parallel processing, potentially exploring techniques to reduce lock contention, thus enhancing its performance and scalability.
 
 ## BACKGROUND
 The core application of our project involves solving partial differential equations (PDEs) that are common in various scientific and engineering fields, such as fluid dynamics, electromagnetics, and material science. Stencil computations, which update each grid point's value based on its neighbors, are a critical component of these simulations. Adaptive Mesh Refinement (AMR) optimizes these computations by increasing the grid resolution only where needed, based on error estimates or feature detection. This approach can significantly reduce the number of computations and memory usage while maintaining or even improving the accuracy of the simulation.
@@ -42,6 +42,7 @@ Extend the optimization to achieve a 10x speed-up and explore the use of machine
 We have chosen to work with Pittsburgh PSC Machines, which include 128 cores to run parallel MPI program. 
 
 ## SCHEDULE
+
 | Week | Dates               | Tasks                                                                                     |
 |------|---------------------|-------------------------------------------------------------------------------------------|
 | 0    | March 25 – March 31 | Literature review and finalization of the high-level project design.                      |
