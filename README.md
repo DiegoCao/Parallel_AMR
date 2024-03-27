@@ -10,10 +10,33 @@ Hangrui Cao (hangruic@andrew.cmu.edu)
 
 We aim to parallelize and optimize an Adaptive Mesh Refinement (AMR) code using OpenMP. The project involves parallelizing an existing serial base code to leverage parallel processing, potentially exploring techniques to reduce lock contention, thus enhancing its performance and scalability.
 
-## BACKGROUND
-The core application of our project involves solving partial differential equations (PDEs) that are common in various scientific and engineering fields, such as fluid dynamics, electromagnetics, and material science. Stencil computations, which update each grid point's value based on its neighbors, are a critical component of these simulations. Adaptive Mesh Refinement (AMR) optimizes these computations by increasing the grid resolution only where needed, based on error estimates or feature detection. This approach can significantly reduce the number of computations and memory usage while maintaining or even improving the accuracy of the simulation.
+## Background
 
-## THE CHALLENGE
+Adaptive Mesh Refinement (AMR) is a numerical technique used in computational simulations to dynamically adjust the resolution of a computational grid based on the features of the solution being computed. In many scientific and engineering applications, such as fluid dynamics, astrophysics, and structural analysis, certain regions of interest may require higher resolution to capture complex phenomena accurately, while other regions can suffice with coarser resolution to reduce computational cost.
+
+AMR algorithms typically work by initially defining a coarse grid covering the entire domain of interest. As the simulation progresses, the algorithm identifies regions where higher resolution is needed and refines the grid locally in those regions, creating finer grids known as refinement patches or refinement levels. This adaptive refinement process allows computational resources to be concentrated where they are most needed, leading to more accurate results with less computational expense.
+
+### Application Description
+
+The application we are focusing on is an implementation of an AMR algorithm for simulating physical phenomena, such as fluid flow or structural deformation, in a computational domain. The algorithm consists of several key components:
+
+- **Grid Initialization:** The simulation domain is discretized into a coarse grid, representing the entire computational domain.
+- **Time Integration:** The simulation advances in time using numerical integration techniques. At each time step, the solution is computed on the current grid configuration.
+- **Refinement Criteria:** Based on predefined criteria, regions requiring higher resolution are identified. These regions are candidates for refinement.
+- **Grid Refinement:** Refinement patches or refinement levels are added to the grid in regions identified by the refinement criteria. These patches have finer resolution compared to the coarse grid.
+- **Data Transfer:** Data from the coarse grid are interpolated onto the refinement patches.
+- **Simulation on Refined Grid:** The simulation continues on the refined grid, capturing fine-scale features with higher accuracy.
+- **Stencil Operations:** Stencil operations are applied to the grid for solving partial differential equations governing some certain physical phenomena.
+
+### Things for Parallelism
+
+Several aspects of the AMR algorithm can benefit from parallelism.
+
+- **Interpolation and Stencil Operations:** Both interpolation from the coarse grid to refinement patches and stencil operations involve computationally intensive operations that can be parallelized efficiently. These operations are typically performed independently on different grid points or patches, making them suitable for parallel execution.
+- **Load Balancing:** Parallelism allows the workload to be distributed evenly across multiple processing units, ensuring efficient utilization of computational resources. Load balancing becomes essential, especially in AMR algorithms where the workload varies dynamically as refinement patches are added or removed.
+- **Scalability:** Parallelizing the AMR algorithm enables scaling to larger problem sizes and utilizing multi-core processors effectively. By distributing the workload across multiple cores, the computational time can be significantly reduced, leading to faster simulations and increased productivity.
+
+## Challenges
 Workload Characteristics: Stencil computations have a high degree of spatial locality but may face challenges in terms of load imbalance due to the adaptive nature of AMR. Dependencies between grid points also introduce synchronization overhead in parallel environments.
 
 **System Constraints**: Mapping the AMR-enabled stencil computations to parallel architectures poses challenges, including efficiently distributing the dynamically changing workload across processors and minimizing communication overhead between them.
@@ -21,13 +44,13 @@ Workload Characteristics: Stencil computations have a high degree of spatial loc
 
 **What We Hope to Learn**: We aim to explore strategies for dynamic load balancing, effective parallelization of AMR processes, and optimization of memory access patterns in stencil computations to achieve high performance on parallel systems.
 
-## RESOURCES
+## Resources
 **Computing Resources**: Access to the university's HPC cluster with multi-core CPUs.
 Starter Code: We will start from an existing open-source AMR implementations (which include the serial implementation version), extending and optimizing it for our needs.
 
 **Reference Material**: We will base our AMR strategy on the principles outlined in "Berger, M. J., and Oliger, J. Adaptive Mesh Refinement for Hyperbolic Partial Differential Equations." Journal of Computational Physics, 1984.
 
-## GOALS AND DELIVERABLES:
+## Goals and Deliverables
 
 **Plan to Achieve**:
 Implement a basic AMR framework capable of dynamic mesh refinement and coarsening for stencil computations.
@@ -38,10 +61,10 @@ Extend the optimization to achieve a 10x speed-up and explore the use of machine
 
 **Demo**: We plan to show a live simulation of fluid flow around an obstacle, comparing the performance and accuracy with and without AMR. Speedup graphs and resource utilization metrics will also be presented.
 
-## PLATFORM CHOICE
+## Platform Choice
 We have chosen to work with Pittsburgh PSC Machines, which include 128 cores to run parallel MPI program. 
 
-## SCHEDULE
+## Schedule
 
 | Week | Dates               | Tasks                                                                                     |
 |------|---------------------|-------------------------------------------------------------------------------------------|
