@@ -69,10 +69,27 @@ We will base our AMR strategy primarily on the principles outlined in the aforem
 
 ## Goals and Deliverables
 
-- **Plan and Hope to Achieve**:
-Based on the current AMR serialization method, we hope to improve the AMR with the apporaches of MPI/OpenMP learned in the parallel computing. We would hope to achieve at least a 4x speed-up on AMR-enabled stencil computations compared to uniform grid computations for selected PDEs, when the code is executed on a GHC machine with 8 cores used. Apart from the speed up, we would also like to perform deep analysis in terms of system performance regarding different metrics (speed, cache misses, etc.)
+- **Parallelization with OpenMPI:** Parallelize the existing serial AMR codebase using OpenMPI to exploit distributed-memory parallelism. This involves identifying parallelizable tasks, such as stencil operations and data transfer, and implementing them using appropriate parallelization constructs.
 
-- **Demo**: We plan to show a live simulation of fluid flow around an obstacle, comparing the performance and accuracy with and without AMR. Speedup graphs and resource utilization metrics will also be presented. Meanwhile, front-end demo tools like streamlit will also be applied for interactive demo purpose.
+- **Optimization for Load Balancing:** Develop strategies for dynamic/semi-static load balancing to distribute the computational workload evenly across processing units. This includes investigating techniques such as task stealing, workload partitioning, or dynamic scheduling to minimize idle time and improve overall efficiency.
+
+- **Reduction of Communication Overhead:** Minimize communication overhead between processing units by optimizing data transfer routines and message passing patterns. This involves reducing unnecessary data exchanges, overlapping communication with computation, and utilizing non-blocking communication primitives to improve parallel efficiency.
+
+- **Performance Analysis and Profiling:** Conduct thorough performance analysis and profiling to identify bottlenecks and areas for optimization. Measure performance metrics such as execution time, speedup, scalability, cache utilization, and memory access patterns to evaluate the effectiveness of parallelization and optimization efforts.
+
+### Hope to Achieve:
+
+- **4x Speedup on AMR-Enabled Stencil Computations on GHC machine with 8 cores:** Aim to achieve at least a 4x speedup on AMR-enabled stencil computations compared to uniform grid computations for selected Partial Differential Equations (PDEs). This target is based on the expected parallel efficiency and the computational resources available.
+
+ - **Deep System Performance Analysis:** Perform in-depth analysis of system performance under various configurations, including different problem sizes, core counts, and communication patterns. Evaluate performance metrics to understand the impact of parallelization strategies on overall system behavior.
+
+### Demo:
+
+During the poster session, we plan to demonstrate the following:
+
+- **Live Simulation Comparison:** Show a live simulation of fluid flow around an obstacle using the parallelized AMR code and compare it with simulations using uniform grid computations. Highlight the differences in accuracy and performance achieved with AMR.
+
+- **Speedup Graphs and Resource Utilization Metrics:** Present speedup graphs demonstrating the performance improvement achieved through parallelization and optimization. Showcase resource utilization metrics such as CPU utilization, memory bandwidth, and cache misses to illustrate the efficiency of the parallel implementation.
 
 ## Platform Choice
 
