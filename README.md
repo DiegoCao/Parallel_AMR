@@ -53,7 +53,7 @@ Several aspects of the AMR algorithm can benefit from parallelism.
 
 - **Computing Resources**:
 
-Access to the university's GHC cluster with multi-core CPUs.
+Access to PSC machines and the university's GHC cluster with multi-core CPUs.
 
 - **Starter Code:**
 
@@ -71,10 +71,10 @@ We will base our AMR strategy primarily on the principles outlined in the aforem
 
 - **Plan to Achieve**:
 Implement a basic AMR framework capable of dynamic mesh refinement and coarsening for stencil computations.
-Achieve at least a 5x speed-up on AMR-enabled stencil computations compared to uniform grid computations for selected PDEs.
+Achieve at least a 4x speed-up on AMR-enabled stencil computations compared to uniform grid computations for selected PDEs, when the code is executed on a GHC machine with 8 cores used.
 
 - **Hope to Achieve**:
-Extend the optimization to achieve a 10x speed-up and explore the use of machine learning techniques for predicting regions requiring refinement.
+Extend the optimization to achieve a 10x speed-up and explore the use of machine learning techniques for predicting regions requiring refinement. what is this ???
 
 - **Demo**: We plan to show a live simulation of fluid flow around an obstacle, comparing the performance and accuracy with and without AMR. Speedup graphs and resource utilization metrics will also be presented.
 
