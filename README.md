@@ -37,23 +37,30 @@ The application we are focusing on is an implementation of an AMR algorithm for 
 
 Several aspects of the AMR algorithm can benefit from parallelism.
 
-- **Interpolation and Stencil Operations** Both interpolation from the coarse grid to refinement patches and stencil operations involve computationally intensive operations that might be parallelized efficiently. These operations are typically performed independently on different grid points or patches, making them suitable for parallel execution.
-- **Load Balancing** One of our major focus is to allow the workload to be distributed evenly across multiple processing units, ensuring efficient utilization of computational resources. Load balancing becomes essential, especially in AMR algorithms where the workload varies dynamically as refinement patches are added or removed.
-- **Scalability** Parallelizing the AMR algorithm enables scaling to larger problem sizes and utilizing multi-core processors effectively. By distributing the workload across multiple cores, the computational time can be significantly reduced, leading to faster simulations and increased productivity.
+- **Interpolation and Stencil Operations:** Both interpolation from the coarse grid to refinement patches and stencil operations involve computationally intensive operations that might be parallelized efficiently. These operations are typically performed independently on different grid points or patches, making them suitable for parallel execution.
+- **Load Balancing:** One of our major focus is to allow the workload to be distributed evenly across multiple processing units, ensuring efficient utilization of computational resources. Load balancing becomes essential, especially in AMR algorithms where the workload varies dynamically as refinement patches are added or removed.
+- **Scalability:** Parallelizing the AMR algorithm enables scaling to larger problem sizes and utilizing multi-core processors effectively. By distributing the workload across multiple cores, the computational time can be significantly reduced, leading to faster simulations and increased productivity.
 
 ## Challenges
 
-- **Workload Characteristics** Stencil computations have a high degree of spatial locality but may face challenges in terms of load imbalance due to the adaptive nature of AMR. Dependencies between grid points also introduce synchronization overhead in parallel environments.
+- **Workload Characteristics:** Stencil computations have a high degree of spatial locality but may face challenges in terms of load imbalance due to the adaptive nature of AMR. Dependencies between grid points also introduce synchronization overhead in parallel environments.
 
 - **System Constraints**: Mapping the AMR-enabled stencil computations to parallel architectures poses challenges, including efficiently distributing the dynamically changing workload across processors and minimizing communication overhead between them.
 
-- **What We Hope to Learn**: We aim to explore strategies for dynamic load balancing, effective parallelization of AMR processes, and optimization of memory access patterns in stencil computations to achieve high performance on parallel systems.
+- **What We Hope to Learn**: We aim to explore strategies for dynamic/semi-static load balancing, effective parallelization of AMR processes, and optimization of memory access patterns in stencil computations to achieve high performance on parallel systems.
 
 ## Resources
-- **Computing Resources**: Access to the university's HPC cluster with multi-core CPUs.
-Starter Code: We will start from an existing open-source AMR implementations (which include the serial implementation version), extending and optimizing it for our needs.
+- **Computing Resources**: Access to the university's GHC cluster with multi-core CPUs.
 
-- **Reference Material**: We will base our AMR strategy on the principles outlined in "Berger, M. J., and Oliger, J. Adaptive Mesh Refinement for Hyperbolic Partial Differential Equations." Journal of Computational Physics, 1984.
+- **Starter Code:** We will start from an existing open-source AMR implementations (which include the serial implementation version), extending and optimizing it for our needs. https://github.com/ParRes/Kernels/blob/default/SERIAL/AMR/amr.c
+
+- **Reference Materials:**
+
+- Berger, M. J., and Oliger, J. Adaptive Mesh Refinement for Hyperbolic Partial Differential Equations. *Journal of Computational Physics*, 1984.
+
+- Diachin, Lori A., Richard D. Hornung, Paul E. Plassmann, and Andrew M. Wissink. "Parallel Adaptive Mesh Refinement." In *Parallel Processing for Scientific Computing*, 2005. [Link](https://api.semanticscholar.org/CorpusID:59895371)
+
+We will base our AMR strategy on the principles outlined in the aforementioned references. Additionally, we will incorporate ideas from new studies on parallel AMR such as...
 
 ## Goals and Deliverables
 
