@@ -15,9 +15,9 @@ Adaptive Mesh Refinement (AMR) is a numerical technique used in computational si
 
 AMR algorithms typically work by initially defining a coarse grid covering the entire domain of interest. As the simulation progresses, the algorithm identifies regions where higher resolution is needed and refines the grid locally in those regions, creating finer grids known as refinement patches or refinement levels. This adaptive refinement process allows computational resources to be concentrated where they are most needed, leading to more accurate results with less computational expense.
 
-The following figure from Wikipedia shows the grid structure of an example AMR calculation. Each of the boxes is a grid; the more boxes it is nested within, the higher the level of refinements.
 
-![alt text]([http://url/to/img.png](https://en.wikipedia.org/wiki/Adaptive_mesh_refinement#/media/File:Amrgridimg.jpg))
+
+![The following figure from Wikipedia shows the grid structure of an example AMR calculation. Each of the boxes is a grid; the more boxes it is nested within, the higher the level of refinements.](https://en.wikipedia.org/wiki/Adaptive_mesh_refinement#/media/File:Amrgridimg.jpg)
 
 ### Application Description
 
