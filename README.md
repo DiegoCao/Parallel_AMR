@@ -42,6 +42,15 @@ Extend the optimization to achieve a 10x speed-up and explore the use of machine
 We have chosen to work with Pittsburgh PSC Machines, which include 128 cores to run parallel MPI program. 
 
 ## SCHEDULE
+| Week | Dates               | Tasks                                                                                     |
+|------|---------------------|-------------------------------------------------------------------------------------------|
+| 0    | March 25 – March 31 | Literature review and finalization of the high-level project design.                      |
+| 1    | April 1 – April 7   | Basic implementation of the AMR framework. Understand the baseline code.                  |
+| 2    | April 8 – April 14  | Integration of the AMR framework with MPI. Basic parallelism finished with test results on GHC machines. |
+| 3    | April 15 – April 21 | Testing, validation, and benchmarking against uniform grid solutions. Optimize work balance and reduce communication overhead. |
+| 4    | April 22 – April 28 | Keep optimizing the solution, but with a focus on reducing lock and contention. Obtain experimental results from PSC machines. |
+| 5    | April 29 – May 5    | Finish up comparison analysis, final report, and poster preparation.                        |
+
 Week 1-2: Literature review and finalization of the project design.
 Week 3-4: Basic implementation of the AMR framework.
 Week 5-6: Integration of the AMR framework with MPI.
