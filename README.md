@@ -69,14 +69,10 @@ We will base our AMR strategy primarily on the principles outlined in the aforem
 
 ## Goals and Deliverables
 
-- **Plan to Achieve**:
-Implement a basic AMR framework capable of dynamic mesh refinement and coarsening for stencil computations.
-Achieve at least a 4x speed-up on AMR-enabled stencil computations compared to uniform grid computations for selected PDEs, when the code is executed on a GHC machine with 8 cores used.
+- **Plan and Hope to Achieve**:
+Based on the current AMR serialization method, we hope to improve the AMR with the apporaches of MPI/OpenMP learned in the parallel computing. We would hope to achieve at least a 4x speed-up on AMR-enabled stencil computations compared to uniform grid computations for selected PDEs, when the code is executed on a GHC machine with 8 cores used. Apart from the speed up, we would also like to perform deep analysis in terms of system performance regarding different metrics (speed, cache misses, etc.)
 
-- **Hope to Achieve**:
-Extend the optimization to achieve a 10x speed-up and explore the use of machine learning techniques for predicting regions requiring refinement. what is this ???
-
-- **Demo**: We plan to show a live simulation of fluid flow around an obstacle, comparing the performance and accuracy with and without AMR. Speedup graphs and resource utilization metrics will also be presented.
+- **Demo**: We plan to show a live simulation of fluid flow around an obstacle, comparing the performance and accuracy with and without AMR. Speedup graphs and resource utilization metrics will also be presented. Meanwhile, front-end demo tools like streamlit will also be applied for interactive demo purpose.
 
 ## Platform Choice
 
