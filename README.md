@@ -50,9 +50,14 @@ Several aspects of the AMR algorithm can benefit from parallelism.
 - **What We Hope to Learn**: We aim to explore strategies for dynamic/semi-static load balancing, effective parallelization of AMR processes, and optimization of memory access patterns in stencil computations to achieve high performance on parallel systems.
 
 ## Resources
-- **Computing Resources**: Access to the university's GHC cluster with multi-core CPUs.
 
-- **Starter Code:** We will start from an existing open-source AMR implementations (which include the serial implementation version), extending and optimizing it for our needs. https://github.com/ParRes/Kernels/blob/default/SERIAL/AMR/amr.c
+- **Computing Resources**:
+
+Access to the university's GHC cluster with multi-core CPUs.
+
+- **Starter Code:**
+
+We will start from an existing open-source AMR implementations (which include the serial implementation version), extending and optimizing it for our needs. [Link](https://github.com/ParRes/Kernels/blob/default/SERIAL/AMR/amr.c)
 
 - **Reference Materials:**
 
@@ -60,7 +65,7 @@ Berger, M. J., and Oliger, J. Adaptive Mesh Refinement for Hyperbolic Partial Di
 
 Diachin, Lori A., Richard D. Hornung, Paul E. Plassmann, and Andrew M. Wissink. "Parallel Adaptive Mesh Refinement." In *Parallel Processing for Scientific Computing*, 2005. [Link](https://api.semanticscholar.org/CorpusID:59895371)
 
-We will base our AMR strategy on the principles outlined in the aforementioned references. Additionally, we will incorporate ideas from new studies on parallel AMR such as...
+We will base our AMR strategy primarily on the principles outlined in the aforementioned references. Additionally, we will look for and incorporate ideas from new studies on parallel AMR.
 
 ## Goals and Deliverables
 
