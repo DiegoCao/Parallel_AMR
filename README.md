@@ -62,7 +62,8 @@ Extend the optimization to achieve a 10x speed-up and explore the use of machine
 **Demo**: We plan to show a live simulation of fluid flow around an obstacle, comparing the performance and accuracy with and without AMR. Speedup graphs and resource utilization metrics will also be presented.
 
 ## Platform Choice
-We have chosen to work with Pittsburgh PSC Machines, which include 128 cores to run parallel MPI program. 
+
+Early-stage tests will be conducted on GHC machines, while final measurements will include results from PSC machines to examine the implementation's scalability.
 
 ## Schedule
 
