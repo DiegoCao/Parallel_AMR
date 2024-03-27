@@ -3,18 +3,21 @@ Group Members:
 Xingyuan Wang (xingyuaw@andrew.cmu.edu)
 Hangrui Cao (hangruic@andrew.cmu.edu)
 
-# Project Proposal
-
+# Parallelization and Optimization of Adaptive Mesh Refinement using OpenMPI
 
 ## Summary
 
-We aim to parallelize and optimize an Adaptive Mesh Refinement (AMR) code using OpenMP. The project involves parallelizing an existing serial base code to leverage parallel processing, potentially exploring techniques to reduce lock contention, thus enhancing its performance and scalability.
+We aim to parallelize and optimize an Adaptive Mesh Refinement (AMR) code using OpenMPI that will run on GHC and PSC machines. The project involves parallelizing an existing serial base code to leverage parallel processing, exploring techniques to reduce work imbalance, communication and synchronization overhead, thus enhancing its performance and scalability.
 
 ## Background
 
 Adaptive Mesh Refinement (AMR) is a numerical technique used in computational simulations to dynamically adjust the resolution of a computational grid based on the features of the solution being computed. In many scientific and engineering applications, such as fluid dynamics, astrophysics, and structural analysis, certain regions of interest may require higher resolution to capture complex phenomena accurately, while other regions can suffice with coarser resolution to reduce computational cost.
 
 AMR algorithms typically work by initially defining a coarse grid covering the entire domain of interest. As the simulation progresses, the algorithm identifies regions where higher resolution is needed and refines the grid locally in those regions, creating finer grids known as refinement patches or refinement levels. This adaptive refinement process allows computational resources to be concentrated where they are most needed, leading to more accurate results with less computational expense.
+
+The following figure from Wikipedia shows the grid structure of an example AMR calculation. Each of the boxes is a grid; the more boxes it is nested within, the higher the level of refinements.
+
+![alt text]([http://url/to/img.png](https://en.wikipedia.org/wiki/Adaptive_mesh_refinement#/media/File:Amrgridimg.jpg))
 
 ### Application Description
 
@@ -32,9 +35,9 @@ The application we are focusing on is an implementation of an AMR algorithm for 
 
 Several aspects of the AMR algorithm can benefit from parallelism.
 
-- **Interpolation and Stencil Operations:** Both interpolation from the coarse grid to refinement patches and stencil operations involve computationally intensive operations that can be parallelized efficiently. These operations are typically performed independently on different grid points or patches, making them suitable for parallel execution.
-- **Load Balancing:** Parallelism allows the workload to be distributed evenly across multiple processing units, ensuring efficient utilization of computational resources. Load balancing becomes essential, especially in AMR algorithms where the workload varies dynamically as refinement patches are added or removed.
-- **Scalability:** Parallelizing the AMR algorithm enables scaling to larger problem sizes and utilizing multi-core processors effectively. By distributing the workload across multiple cores, the computational time can be significantly reduced, leading to faster simulations and increased productivity.
+- **Interpolation and Stencil Operations** Both interpolation from the coarse grid to refinement patches and stencil operations involve computationally intensive operations that might be parallelized efficiently. These operations are typically performed independently on different grid points or patches, making them suitable for parallel execution.
+- **Load Balancing** One of our major focus is to allow the workload to be distributed evenly across multiple processing units, ensuring efficient utilization of computational resources. Load balancing becomes essential, especially in AMR algorithms where the workload varies dynamically as refinement patches are added or removed.
+- **Scalability** Parallelizing the AMR algorithm enables scaling to larger problem sizes and utilizing multi-core processors effectively. By distributing the workload across multiple cores, the computational time can be significantly reduced, leading to faster simulations and increased productivity.
 
 ## Challenges
 Workload Characteristics: Stencil computations have a high degree of spatial locality but may face challenges in terms of load imbalance due to the adaptive nature of AMR. Dependencies between grid points also introduce synchronization overhead in parallel environments.
@@ -63,7 +66,7 @@ Extend the optimization to achieve a 10x speed-up and explore the use of machine
 
 ## Platform Choice
 
-Early-stage tests will be conducted on GHC machines, while final measurements will include results from PSC machines to examine the implementation's scalability.
+Since we choose to parallelize a piece of code designed for multi-core machines, early-stage tests will be conducted on GHC machines, while final measurements will include results from PSC machines to examine the implementation's scalability under a large number of cores. We temporarily choose OpenMPI as our implementation framework.
 
 ## Schedule
 
