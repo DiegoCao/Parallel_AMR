@@ -51,11 +51,5 @@ We have chosen to work with Pittsburgh PSC Machines, which include 128 cores to 
 | 4    | April 22 – April 28 | Keep optimizing the solution, but with a focus on reducing lock and contention. Obtain experimental results from PSC machines. |
 | 5    | April 29 – May 5    | Finish up comparison analysis, final report, and poster preparation.                        |
 
-Week 1-2: Literature review and finalization of the project design.
-Week 3-4: Basic implementation of the AMR framework.
-Week 5-6: Integration of the AMR framework with MPI.
-Week 7-10: Testing, validation, and benchmarking against uniform grid solutions.
-Week 11: Preparation of the final report and development of the demo.
-Intermediate Milestone (April 16th): Completed basic AMR framework with integrated stencil computations.
 This schedule allows us to allocate time efficiently, considering the project's complexity and our academic workload. We plan to reassess our progress weekly to ensure we stay on track to meet our goals.
 
