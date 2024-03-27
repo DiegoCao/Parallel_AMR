@@ -56,9 +56,9 @@ Several aspects of the AMR algorithm can benefit from parallelism.
 
 - **Reference Materials:**
 
-- Berger, M. J., and Oliger, J. Adaptive Mesh Refinement for Hyperbolic Partial Differential Equations. *Journal of Computational Physics*, 1984.
+Berger, M. J., and Oliger, J. Adaptive Mesh Refinement for Hyperbolic Partial Differential Equations. *Journal of Computational Physics*, 1984.
 
-- Diachin, Lori A., Richard D. Hornung, Paul E. Plassmann, and Andrew M. Wissink. "Parallel Adaptive Mesh Refinement." In *Parallel Processing for Scientific Computing*, 2005. [Link](https://api.semanticscholar.org/CorpusID:59895371)
+Diachin, Lori A., Richard D. Hornung, Paul E. Plassmann, and Andrew M. Wissink. "Parallel Adaptive Mesh Refinement." In *Parallel Processing for Scientific Computing*, 2005. [Link](https://api.semanticscholar.org/CorpusID:59895371)
 
 We will base our AMR strategy on the principles outlined in the aforementioned references. Additionally, we will incorporate ideas from new studies on parallel AMR such as...
 
