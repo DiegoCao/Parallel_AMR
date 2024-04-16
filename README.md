@@ -97,14 +97,16 @@ Since we choose to parallelize a piece of code designed for multi-core machines,
 
 ## Schedule
 
-| Week | Dates               | Tasks                                                                                     |
+| Week | Dates               | Tasks Completed/Planned                                                                                     |
 |------|---------------------|-------------------------------------------------------------------------------------------|
-| 0    | March 25 – March 31 | Literature review and finalization of the high-level project design.                      |
-| 1    | April 1 – April 7   | Basic implementation of the AMR framework. Understand the baseline code.                  |
-| 2    | April 8 – April 14  | Integration of the AMR framework with MPI. Basic parallelism finished with test results on GHC machines. |
-| 3    | April 15 – April 21 | Testing, validation, and benchmarking against uniform grid solutions. Optimize work balance and reduce communication overhead. |
-| 4    | April 22 – April 28 | Keep optimizing the solution, but with a focus on reducing lock and contention. Obtain experimental results from PSC machines. |
-| 5    | April 29 – May 5    | Finish up comparison analysis, final report, and poster preparation.                        |
+| 0    | March 25 – March 31 | Reviewed several existing AMR codebase and literature. (both)                       |
+| 1    | April 1 – April 7   | Further reviewed a structured AMR repository that simulates heat propogation but does not modify mesh during execution. (Xingyuan Wang) Examined wave simulation problem and finalized data structures to use. (Hangrui Cao)                  |
+| 2    | April 8 – April 14  | Implemented grid initialization and a (simplified) workload rebalancing algorithm. (Xingyuan Wang) Implemented and tested flux calculation procedure; implemented mesh refinement criteria. (Hangrui Cao)|
+| 3    | April 15 – April 17 | Finish mid-project report. (both) Fix bugs when program runs near grid boundaries, and complete the initial solution. (Xingyuan Wang) Implement visualization script for displaying wave grid. (Hangrui Cao) |
+| 3    | April 18 – April 21 | Run initial performance tests on GHC machines with varying processor numbers, identiy any performance issues. (Xingyuan Wang) Test another workload rebalancing algorithm with finer granularity. (Hangrui Cao) |
+| 4    | April 22 – April 24 | Support for multi-level refinement (if possible, currently fixed at 2). (Xingyuan Wang) Examine locality and MPI communication schema issues. (Hangrui Cao)|
+| 4    | April 25 – April 28 | Refine current memory access pattern with improved data layout. (Hangrui Cao) Get final performance results from GHC and PSC machines. (Xingyuan Wang) |
+| 5    | April 29 – May 5    | Final comparison tests, make project poster and write the final report. (both)                        |
 
 This schedule allows us to allocate time efficiently, considering the project's complexity and our academic workload. We plan to reassess our progress weekly to ensure we stay on track to meet our goals.
 
