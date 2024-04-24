@@ -8,4 +8,5 @@ Hangrui Cao (hangruic@andrew.cmu.edu)
 **Project Website**: [Link](https://diegocao.github.io/Parallel_AMR/)
 
 **Proposal**: [Link](Proposal.md)
+
 **Milestone Report**: [Link](MidReport.md)
